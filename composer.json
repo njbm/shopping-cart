@@ -1,0 +1,33 @@
+{
+   "name": "njbm/shopping-cart",
+   "description": "A simple shopping cart package.",
+   "type": "library",
+   "keywords": ["shoppingCart","cart"],
+   "homepage": "https://github.com/njbm/shopping-cart",
+   "license": "MIT",
+   "authors": [
+      {
+          "name": "Jaber Masud",
+          "email": "jabermasud99@gmail.come",
+          "homepage": "http://jaber.netlify.app",
+          "role": "Developer"
+      }
+  ],
+   "autoload": {
+     "psr-4": {
+       "Njbm\\ShoppingCart\\": "src/"
+     }
+   },
+   "require": {},
+   "extra": {
+      "laravel": {
+        "providers": [
+          "Njbm\\ShoppingCart\\ShoppingCartServiceProvider"
+        ],
+        "aliases": {
+          "ShoppingCart": "Njbm\\ShoppingCart\\Facades\\ShoppingCartFacade"
+        }
+      }
+    }
+ }
+ 
