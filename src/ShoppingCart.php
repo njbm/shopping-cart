@@ -19,18 +19,49 @@ class ShoppingCart
     /**
      * Add an item to the cart.
      * 
-     * @param mixed $item
+     * @param int $productId
+     * @param int|null $userId
      * @param int $quantity
+     * @param string|null $type
+     * @param float $itemPrice
+     * @param float $supportPrice
+     * @param float $price
+     * @param array $dynamicFields // Additional dynamic fields
      */
-    public function addItem($item, int $quantity)
-    {
-        $cart = Session::get($this->sessionKey);
-        $cart[] = [
-            'item' => $item,
-            'quantity' => $quantity,
-        ];
-        Session::put($this->sessionKey, $cart);
-    }
+    public function addItem(
+      int $productId,
+      ?int $userId,
+      int $quantity,
+      ?string $type,
+      float $itemPrice,
+      float $supportPrice,
+      float $price,
+      array $dynamicFields = []
+  ) {
+      // Retrieve the current cart from the session
+      $cart = Session::get($this->sessionKey, []);
+
+      $sessionId = session()->getId();
+
+      $cartItem = [
+          'product_id' => $productId,
+          'user_id' => $userId,
+          'session_id' => $sessionId,
+          'quantity' => $quantity,
+          'type' => $type,
+          'item_price' => $itemPrice,
+          'price' => $price,
+      ];
+
+      // Merge dynamic fields into the cart item
+      $cartItem = array_merge($cartItem, $dynamicFields);
+
+      // Add the new item to the cart
+      $cart[] = $cartItem;
+
+      // Save the updated cart back to the session
+      Session::put($this->sessionKey, $cart);
+  }
 
     /**
      * Remove an item from the cart.
