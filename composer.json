@@ -2,7 +2,7 @@
    "name": "njbm/shopping-cart",
    "description": "A simple shopping cart package.",
    "type": "library",
-   "keywords": ["shoppingCart","cart"],
+   "keywords": ["shoppingCart","cart","jabermasud"],
    "homepage": "https://github.com/njbm/shopping-cart",
    "license": "MIT",
    "authors": [

@@ -21,6 +21,6 @@ class ShoppingCartServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Any bootstrapping code, like publishing config files, would go here.
+        
     }
 }
